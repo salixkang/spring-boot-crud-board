@@ -1,4 +1,4 @@
-package com.salixkang.crudboard;
+package com.salixkang.crudboard.answer;
 
 import java.time.LocalDateTime;
 
@@ -6,6 +6,7 @@ import javax.persistence.*;
 
 import javax.persistence.ManyToOne;
 
+import com.salixkang.crudboard.question.Question;
 import lombok.Setter;
 import lombok.Getter;
 
