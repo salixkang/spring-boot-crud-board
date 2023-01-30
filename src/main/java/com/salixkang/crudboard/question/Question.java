@@ -2,16 +2,19 @@ package com.salixkang.crudboard.question;
 
 import java.time.LocalDateTime;
 import java.util.List;
-
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.CascadeType;
+import javax.persistence.ManyToOne;
 
+import com.salixkang.crudboard.user.SiteUser;
 import com.salixkang.crudboard.answer.Answer;
 import lombok.Getter;
 import lombok.Setter;
@@ -34,4 +37,12 @@ public class Question {
 
     @OneToMany(mappedBy = "question", cascade = CascadeType.REMOVE)
     private List<Answer> answerList;
+
+    @ManyToOne
+    private SiteUser author;
+
+    private LocalDateTime modifyDate;
+
+    @ManyToMany
+    Set<SiteUser> voter;
 }
